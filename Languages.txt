@@ -1,20 +1,22 @@
+BASIC
+Batch file
 C
 C++
 C#
-Javascript
-Rust
-Java
-PHP
-BASIC
-Batch file
 Carbon
 COBOL
 Coffee Script
 Dart
+Euphoria
+Java
 julia
+Javascript
 Kotlin
 MATLAB
+PHP
+Python
 Ruby
+Rust
 Scala
 Swift
 TypeScript
