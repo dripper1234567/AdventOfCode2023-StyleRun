@@ -20,5 +20,5 @@ Rust
 Scala
 Swift
 TypeScript
-Groovy
+Lua
 Bash
