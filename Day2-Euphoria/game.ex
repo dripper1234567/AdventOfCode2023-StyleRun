@@ -1,5 +1,8 @@
 -- https://www.tutorialspoint.com/euphoria/euphoria_files_io.htm
 -- SO HELPFULL
+-- clear; flatpak-spawn --host eui game
+
+
 include std/sequence.e
 include std/convert.e
 include std/io.e
@@ -29,10 +32,13 @@ integer TOTAL = 0
 sequence lines = read_lines(gameNum)
 sequence data
 
+sequence accepted
+-- todo: add one of each accepted number to this, then print over the sequence post read, will show if any nasties are getting in.
+
 for u = 1 to length(lines) do
     data = split(lines[u], ": ")
 
-    printf( STDOUT, "%s\n", {data[2]})
+    --printf( STDOUT, "%s\n", {data[2]})
     if length(data) > 0 then
         -- Remove the game tag
         data = data[2]
@@ -47,7 +53,7 @@ for u = 1 to length(lines) do
 
             for e = 1 to length(entries) do
                 sequence singular = split(entries[e], " ")
-                integer COL = 0
+                integer COL = 999
 
                 -- set check to the colour given
                 if singular[2][1] = 'r' then
@@ -61,19 +67,18 @@ for u = 1 to length(lines) do
                 -- check that colour val against given 
                 if to_number(singular[1]) > COL then
                     ISTRUE = 0
-                    printf(STDOUT, "%d - D: %d E: %d : %s\n", {u, i, e, entries[e]})
                     exit
                 end if
-
             end for
-            
-            -- TODO FIX THIS FU MESS
+
             -- if the ID should be summed
             if ISTRUE = 1 then
                 TOTAL += u
+                --printf(STDOUT, "%d: %s -SUCCESS-\n", {u, data[i]})
                 exit
+            else
+                --printf(STDOUT, "%d: %s -FAIL-\n", {u, data[i]})
             end if
-
         end for
     end if
 end for
