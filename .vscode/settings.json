@@ -7,5 +7,7 @@
         }
     },
 
-    "terminal.integrated.defaultProfile.linux": "host-bash"
+    "terminal.integrated.defaultProfile.linux": "host-bash",
+
+    "perl.perlInc": [ "/usr/share/perl5" ],
 }
