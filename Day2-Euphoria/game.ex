@@ -38,15 +38,15 @@ sequence accepted
 for u = 1 to length(lines) do
     data = split(lines[u], ": ")
 
+    -- Check if the id is to be summed
+    integer ISTRUE = 1
+
     --printf( STDOUT, "%s\n", {data[2]})
     if length(data) > 0 then
         -- Remove the game tag
         data = data[2]
         -- Split the games
         data = split(data, "; ")
-
-        -- Check if the id is to be summed
-        integer ISTRUE = 1
 
         for i = 1 to length(data) do
             sequence entries = split(data[i], ", ")
@@ -70,16 +70,12 @@ for u = 1 to length(lines) do
                     exit
                 end if
             end for
-
-            -- if the ID should be summed
-            if ISTRUE = 1 then
-                TOTAL += u
-                --printf(STDOUT, "%d: %s -SUCCESS-\n", {u, data[i]})
-                exit
-            else
-                --printf(STDOUT, "%d: %s -FAIL-\n", {u, data[i]})
-            end if
         end for
+    end if
+
+    -- if the ID should be summed
+    if ISTRUE = 1 then
+        TOTAL += u
     end if
 end for
 
